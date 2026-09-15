@@ -27,7 +27,7 @@ def verify():
     challenge = request.args.get('hub.challenge')
 
     if mode == 'subscribe' and token == VERIFY_TOKEN:
-        return challenge, 200
+        return challenge, 200   # <-- Isso é crucial: retornar o challenge puro
     return 'Invalid token', 403
 
 # 2. Endpoint de Notificação (A Meta acessa isso sempre que alguém comenta)
