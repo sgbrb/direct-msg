@@ -28,3 +28,61 @@ com informações e contato.
 - **Meta Graph API v21.0** — envio das DMs
 
 ## 🏗️ Estrutura
+direct-msg/
+├── app.py # Servidor Flask + lógica do webhook
+├── Procfile # Comando de deploy (gunicorn)
+└── requirements.txt # Dependências
+## ▶️ Como rodar localmente
+
+```bash
+git clone https://github.com/sgbrb/direct-msg.git
+cd direct-msg
+python -m venv venv
+venv\Scripts\activate
+python -m pip install -r requirements.txt
+python app.py
+
+⚙️ Variáveis de ambiente
+Variável	Descrição
+VERIFY_TOKEN	Token usado na verificação inicial do webhook
+PAGE_ACCESS_TOKEN	Token de acesso da página do Instagram
+PAGE_ID	ID da página
+🌐 Configurando o Webhook na Meta
+Crie um app em developers.facebook.com
+
+Adicione o produto Webhooks
+
+Configure a URL: https://seu-dominio/webhook
+
+Use o mesmo valor em Verify Token que está no .env
+
+Assine o evento comments do objeto instagram
+
+🚀 Deploy
+O projeto inclui um Procfile com web: gunicorn app:app, pronto para
+deploy em Heroku, Railway, Render ou qualquer plataforma que suporte
+buildpacks Python.
+
+📚 O que aprendi
+Ciclo de vida de webhooks da Meta (GET de verificação + POST de eventos)
+
+Autenticação com Page Access Token na Graph API
+
+Uso do endpoint /private_replies para envio de DMs vinculadas a comentários
+
+Configuração de deploy com gunicorn + Procfile
+
+📄 Licença
+
+### 4. Salve
+
+Role a página até o final. Preencha a mensagem do commit (pode deixar o padrão que o GitHub sugere, tipo `Update README.md`). Clique em **"Commit changes"**.
+
+## O Que É Uma "Seção" no README
+
+Sua pergunta foi "como fazer uma seção dentro do README". Resposta:
+
+**Uma seção é criada com `##` no começo da linha.** Exemplo:
+
+```markdown
+## 🎯 Sobre
