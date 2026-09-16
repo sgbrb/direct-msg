@@ -7,7 +7,6 @@ app = Flask(__name__)
 
 VERIFY_TOKEN = os.environ.get("VERIFY_TOKEN")
 PAGE_ACCESS_TOKEN = os.environ.get("PAGE_ACCESS_TOKEN")
-PAGE_ID = os.environ.get("PAGE_ID")
 
 # Histórico de comentários respondidos (para não responder duas vezes)
 ARQUIVO_HISTORICO = "comentarios_respondidos.json"
@@ -36,8 +35,9 @@ def verify():
 # --- Rota que recebe as notificações ---
 @app.route('/webhook', methods=['POST'])
 def webhook():
-    data = request.get_json()
-    
+    data = request.get_json(silent=True)
+    if not data:
+        return 'Invalid payload', 400
     if data.get("object") == "instagram":
         for entry in data.get("entry", []):
             for change in entry.get("changes", []):
@@ -61,12 +61,10 @@ def enviar_dm(comment_id, texto_comentario):
     url = f"https://graph.facebook.com/v21.0/{comment_id}/private_replies"
     
     mensagem = (
-        f"Olá! Obrigado pelo interesse! 😊\n\n"
-        f"Recebi seu comentário: '{texto_comentario}'\n\n"
-        f"Aqui estão as informações do imóvel:\n"
-        f"💰 Valor: R$ 050.000,00\n"
-        f"📲 Agende sua visita: (48) 999999999"
-    )
+    f"Olá! Obrigado pelo interesse! 😊\n\n"
+    f"Recebi seu comentário: '{texto_comentario}'\n\n"
+    f"Em breve entraremos em contato com mais informações."
+)
     
     params = {
         "message": mensagem,
