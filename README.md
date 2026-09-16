@@ -53,7 +53,6 @@ python app.py
 |---|---|
 | `VERIFY_TOKEN` | Token usado na verificação inicial do webhook |
 | `PAGE_ACCESS_TOKEN` | Token de acesso da página do Instagram |
-| `PAGE_ID` | ID da página |
 
 ## 🌐 Configurando o Webhook na Meta
 
