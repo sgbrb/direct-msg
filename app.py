@@ -64,8 +64,8 @@ def enviar_dm(comment_id, texto_comentario):
         f"Olá! Obrigado pelo interesse! 😊\n\n"
         f"Recebi seu comentário: '{texto_comentario}'\n\n"
         f"Aqui estão as informações do imóvel:\n"
-        f"💰 Valor: R$ 850.000,00\n"
-        f"📲 Agende sua visita: (48) 99101-4563"
+        f"💰 Valor: R$ 050.000,00\n"
+        f"📲 Agende sua visita: (48) 999999999"
     )
     
     params = {
