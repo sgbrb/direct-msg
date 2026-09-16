@@ -28,10 +28,14 @@ com informações e contato.
 - **Meta Graph API v21.0** — envio das DMs
 
 ## 🏗️ Estrutura
+
+```
 direct-msg/
-├── app.py # Servidor Flask + lógica do webhook
-├── Procfile # Comando de deploy (gunicorn)
-└── requirements.txt # Dependências
+├── app.py
+├── Procfile
+└── requirements.txt
+```
+
 ## ▶️ Como rodar localmente
 
 ```bash
@@ -41,6 +45,7 @@ python -m venv venv
 venv\Scripts\activate
 python -m pip install -r requirements.txt
 python app.py
+```
 
 ⚙️ Variáveis de ambiente
 Variável	Descrição
