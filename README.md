@@ -45,38 +45,37 @@ python -m venv venv
 venv\Scripts\activate
 python -m pip install -r requirements.txt
 python app.py
-```bash
+```
 
-⚙️ Variáveis de ambiente
-Variável	Descrição
-VERIFY_TOKEN	Token usado na verificação inicial do webhook
-PAGE_ACCESS_TOKEN	Token de acesso da página do Instagram
-PAGE_ID	ID da página
-🌐 Configurando o Webhook na Meta
-Crie um app em developers.facebook.com
+## ⚙️ Variáveis de ambiente
 
-Adicione o produto Webhooks
+| Variável | Descrição |
+|---|---|
+| `VERIFY_TOKEN` | Token usado na verificação inicial do webhook |
+| `PAGE_ACCESS_TOKEN` | Token de acesso da página do Instagram |
+| `PAGE_ID` | ID da página |
 
-Configure a URL: https://seu-dominio/webhook
+## 🌐 Configurando o Webhook na Meta
 
-Use o mesmo valor em Verify Token que está no .env
+1. Crie um app em [developers.facebook.com](https://developers.facebook.com)
+2. Adicione o produto **Webhooks**
+3. Configure a URL: `https://seu-dominio/webhook`
+4. Use o mesmo valor em **Verify Token** que está no `.env`
+5. Assine o evento `comments` do objeto `instagram`
 
-Assine o evento comments do objeto instagram
+## 🚀 Deploy
 
-🚀 Deploy
-O projeto inclui um Procfile com web: gunicorn app:app, pronto para
+O projeto inclui um `Procfile` com `web: gunicorn app:app`, pronto para
 deploy em Heroku, Railway, Render ou qualquer plataforma que suporte
 buildpacks Python.
 
-📚 O que aprendi
-Ciclo de vida de webhooks da Meta (GET de verificação + POST de eventos)
+## 📚 O que aprendi
 
-Autenticação com Page Access Token na Graph API
+- Ciclo de vida de webhooks da Meta (GET de verificação + POST de eventos)
+- Autenticação com `Page Access Token` na Graph API
+- Uso do endpoint `/private_replies` para envio de DMs vinculadas a comentários
+- Configuração de deploy com gunicorn + Procfile
 
-Uso do endpoint /private_replies para envio de DMs vinculadas a comentários
-
-Configuração de deploy com gunicorn + Procfile
-
-📄 Licença
+## 📄 Licença
 
 MIT
