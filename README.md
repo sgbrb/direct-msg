@@ -74,15 +74,4 @@ Configuração de deploy com gunicorn + Procfile
 
 📄 Licença
 
-### 4. Salve
-
-Role a página até o final. Preencha a mensagem do commit (pode deixar o padrão que o GitHub sugere, tipo `Update README.md`). Clique em **"Commit changes"**.
-
-## O Que É Uma "Seção" no README
-
-Sua pergunta foi "como fazer uma seção dentro do README". Resposta:
-
-**Uma seção é criada com `##` no começo da linha.** Exemplo:
-
-```markdown
-## 🎯 Sobre
+MIT
